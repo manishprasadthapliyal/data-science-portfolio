@@ -19,7 +19,7 @@ Repository containing portfolio of data science projects completed by me for aca
 	-  In this i have implemented the following Machine Learning Regression models:
       	-   __Logistic Regression__
       	-   __K-Nearest Neighbors (K-NN)__
-      	-   __Support Vector Machine (SVM)v
+      	-   __Support Vector Machine (SVM)__
       	-   __Kernel SVM__
       	-   __Naive Bayes__
       	-   __Decision Tree Classification__
