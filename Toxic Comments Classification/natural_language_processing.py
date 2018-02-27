@@ -5,21 +5,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.decomposition import PCA
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import StratifiedKFold
-from sklearn.model_selection import cross_val_score
-rows = 100
+rows = 5000
 # Import dataset
 dataset = pd.read_csv('train.csv')
-dataset = dataset.iloc[:rows]
 # CLeaning the texts
 import re
 import nltk
 #nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-corpus = []
+
 def bagOfWords(beg, end):
+    corpus = []
     for i in range(beg, end) :
         # Only keep letters
         # First Step : Kept All the letters
@@ -43,13 +40,12 @@ def bagOfWords(beg, end):
      
     
     # Creating Bag of Words model    
-    #Todo: understand what are we visulizing
     from sklearn.feature_extraction.text import TfidfVectorizer
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(max_features=1500)
     X = vectorizer.fit_transform(corpus).toarray()
-    # Visualise the Bag of Words
+    # Visualise the Bag of Words in 2-D
     pca = PCA(n_components=2).fit(X)
-    data2D = pca.transform(X)
+    data2D = pca.fit_transform(X)
     plt.scatter(data2D[:,0], data2D[:,1])
     plt.show()
     y = dataset.iloc[:rows,2:8].values
@@ -72,24 +68,24 @@ def create_Model() :
     classifier = Sequential()
     
     # Adding input layer and the first hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu',input_dim=1491))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu',input_dim=1500))
     
     # Adding the second hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu'))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu'))
     
     # Adding the third hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu'))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu'))
     
     # Adding the fourth hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu'))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu'))
     
     
     # Adding the Fifth hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu'))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu'))
     
     
     # Adding the Sixth hidden layer
-    classifier.add(Dense(output_dim=1495,init='normal',activation='relu'))
+    classifier.add(Dense(output_dim=1503,init='normal',activation='relu'))
     
     # Adding the output layer for multiclass change output dim and activation='softmax'
     classifier.add(Dense(output_dim=6,init='normal',activation='sigmoid'))
@@ -130,7 +126,7 @@ bow = bagOfWords(rows,rows*2)
 X_test = bow['X']
 y_test = bow['y'] 
 # Predicting the Test set results
-y_pred = nn_model.predict(X_test)
+y_pred = np.round(nn_model.predict(X_test))
 # Compute the Hamming score (a.k.a. label-based accuracy) for the multi-label case
 def hamming_score(y_test, y_pred, normalize=True, sample_weight=None):
     acc_list = []
@@ -153,7 +149,8 @@ import sklearn.metrics
 print('Hamming score: {0}'.format(hamming_score(y_test, y_pred))) 
 print('Subset accuracy: {0}'.format(sklearn.metrics.accuracy_score(y_test, y_pred, normalize=True, sample_weight=None)))
 print('Hamming loss: {0}'.format(sklearn.metrics.hamming_loss(y_test, y_pred)))
-np.savetxt('output.csv',y_pred,delimiter=',',fmt="%.0f")
 # evaluate the model
 scores = nn_model.evaluate(X, y, verbose=0)
 print("%s: %.2f%%" % (nn_model.metrics_names[1], scores[1]*100))
+# Save the result
+np.savetxt('output.csv',y_pred,delimiter=',',fmt="%.0f")
