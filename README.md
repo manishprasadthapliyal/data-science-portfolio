@@ -44,11 +44,12 @@ Repository containing portfolio of data science projects completed by me for aca
 - ### Deep Learning
 	- Deep Learning is a subfield of machine learning concerned with algorithms inspired by the structure and function of the brain called artificial neural networks.
 	-  In this i have implemented the following Supervised Deep Learning models:
-      	-   __Logistic Regression__
-      	-   __K-Nearest Neighbors (K-NN)__
-      	-   __Support Vector Machine (SVM)__
-      	-   __Kernel SVM__
-      	-   __Naive Bayes__
-      	-   __Decision Tree Classification__
-      	-   __Random Forest Classification__
+      	-   __Artificial Neural Networks__
+      	-   __Convolutional Neural Networks__
+      	-   __Recurrent Neural Networks__
+      	
+	-  In this i have implemented the following Unsupervised Deep Learning models:
+	-   __Boltzmann Machines__
+      	-   __Self Organizing Maps__
+      	-   __AutoEncoders___
       
