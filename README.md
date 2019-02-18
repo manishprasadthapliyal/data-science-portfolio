@@ -40,4 +40,16 @@ Repository containing portfolio of data science projects completed by me for aca
 	- Natural Language Processing (or NLP) is applying Machine Learning models to text and language. Teaching machines to understand what is said in spoken and written word is the focus of Natural Language Processing. Whenever you dictate something into your iPhone / Android device that is then converted to text, that’s an NLP algorithm in action.
 	-  In this i have implemented the following Machine Learning NLP models:
       	-  __Create a Bag of Words model__  
+	
+- ### Deep Learning
+	- Deep Learning is a subfield of machine learning concerned with algorithms inspired by the structure and function of the brain called artificial neural networks.
+	-  In this i have implemented the following Supervised Deep Learning models:
+      	-  __Artificial Neural Networks__  
+	-  __Recurrent Neural Networks__  
+	-  __Convolutional Neural Networks__  
+	
+	-  In this i have implemented the following Unsupervised Deep Learning models:
+	-  __Boltzmann Machines__  
+	-  __Self Organizing Maps__  
+	-  __AutoEncoders__  
       
