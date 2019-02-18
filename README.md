@@ -48,8 +48,9 @@ Repository containing portfolio of data science projects completed by me for aca
       	-   __Convolutional Neural Networks__
       	-   __Recurrent Neural Networks__
       	
-	-  In this i have implemented the following Unsupervised Deep Learning models:
-	-   __Boltzmann Machines__
+	-  In this i have implemented the following Supervised Deep Learning models:
+      	-   __Boltzmann Machines__
       	-   __Self Organizing Maps__
-      	-   __AutoEncoders___
+      	-   __AutoEncoders__
+	
       
